@@ -11,14 +11,17 @@
   <p>Successfully logged in! Welcome back {data.user}!</p>
 {/if}
 
-<form method="POST" action="?/login">
+<form method="POST" action="?/login&redirectTo=/">
+  {#if form?.missing}
+    <p>Some fields are missing</p>
+  {/if}
   <label for="email">
     Email
-    <input name="email" type="email" />
+    <input id="email" name="email" type="email" value={form?.email ?? ''} />
   </label>
   <label for="password">
     Password
-    <input name="password" type="password" />
+    <input id="password" name="password" type="password" />
   </label>
   <button>Log in</button>
   <button formaction="?/register">Register</button>
