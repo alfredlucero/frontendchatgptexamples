@@ -20,6 +20,10 @@
   }
 
   const colors = ['red', 'orange', 'blue', 'yellow'];
+
+  function handleMessage(event: any) {
+    alert(event.detail.text);
+  }
 </script>
 
 <style>
@@ -33,7 +37,7 @@
 <h1 data-name={name}>Hello {name}!</h1>
 
 <p>Test paragraph</p>
-<Nested answer={17}/>
+<Nested answer={17} on:message={handleMessage}/>
 <p>{@html string}</p>
 
 <button on:click={increment}>
@@ -70,3 +74,7 @@
 {:catch error}
   <p>{error.message}</p>
 {/await}
+
+<button on:click|once={() => alert('Alert only once')}>
+  Alert only once
+</button>
