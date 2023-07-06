@@ -9,6 +9,8 @@
   function increment() {
     count += 1;
   }
+
+  const colors = ['red', 'orange', 'blue', 'yellow'];
 </script>
 
 <style>
@@ -30,3 +32,20 @@
   {count === 1 ? 'time' : 'times'}
 </button>
 <p>{count} doubled is {doubled}</p>
+
+{#if count > 10}
+  <p>{count} is greater than 10</p>
+{:else if count < 5}
+  <p>{count} is less than 5</p>
+{:else}
+  <p>{count} is between 0 and 10</p>
+{/if}
+
+{#each colors as color, i (color)}
+  <button
+    style="background: {color}"
+    aria-label={color}
+  >
+    {i+1}
+  </button>
+{/each}
