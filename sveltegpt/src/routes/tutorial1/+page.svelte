@@ -10,6 +10,15 @@
     count += 1;
   }
 
+  async function getRandomNumber() {
+    return await Math.random();
+  }
+
+  let promise = getRandomNumber();
+  function handleClickRandomNumber() {
+    promise = getRandomNumber();
+  }
+
   const colors = ['red', 'orange', 'blue', 'yellow'];
 </script>
 
@@ -49,3 +58,15 @@
     {i+1}
   </button>
 {/each}
+
+<button on:click={handleClickRandomNumber}>
+  generate random number
+</button>
+
+{#await promise}
+  <p>Waiting...</p>
+{:then number}
+  <p>The number is {number}</p>
+{:catch error}
+  <p>{error.message}</p>
+{/await}
