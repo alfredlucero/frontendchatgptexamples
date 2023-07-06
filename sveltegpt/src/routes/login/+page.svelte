@@ -2,12 +2,11 @@
   <title>Login Page</title>
 </svelte:head>
 
-<script>
-  /** @type {import('./$types').PageData} */
-  export let data;
+<script lang="ts">
+  import type { PageData, ActionData } from './$types';
+  export let data:PageData;
 
-  /** @type {import('./$types').ActionData} */
-  export let form;
+  export let form:ActionData;
 </script>
 
 {#if form?.success}
