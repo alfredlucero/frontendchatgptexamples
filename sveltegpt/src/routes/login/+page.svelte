@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Login Page</title>
+</svelte:head>
+
 <script>
   /** @type {import('./$types').PageData} */
   export let data;
